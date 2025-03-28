@@ -1,4 +1,6 @@
-import { useEffect, useState, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
+import Carousel from 'react-multi-carousel';
+import 'react-multi-carousel/lib/styles.css';
 import '../css/Carrossel.css';
 
 // Caminho para a pasta assets
@@ -7,127 +9,72 @@ const images = Object.values(import.meta.glob('../assets/*.{png,jpg,jpeg,svg}', 
 );
 
 function Carrossel() {
-    const [currentIndex, setCurrentIndex] = useState(0);
-    const [isTransitioning, setIsTransitioning] = useState(false);
-    const intervalRef = useRef<number | null>(null);
-
-    // Função para limpar e reiniciar o temporizador
-    const resetTimer = () => {
-        if (intervalRef.current) {
-            clearInterval(intervalRef.current);
-        }
-        
-        intervalRef.current = window.setInterval(() => {
-            nextSlide();
-        }, 5000);
-    };
-
-    // Função para avançar para a próxima imagem com transição suave
-    const nextSlide = () => {
-        if (isTransitioning) return; // Evita múltiplas transições simultâneas
-
-        setIsTransitioning(true);
-        setTimeout(() => {
-            setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
-            setTimeout(() => setIsTransitioning(false), 50);
-        }, 500); // Tempo para fade out
-    };
-
-    // Função para voltar para a imagem anterior com transição suave
-    const prevSlide = () => {
-        if (isTransitioning) return;
-
-        setIsTransitioning(true);
-        setTimeout(() => {
-            setCurrentIndex((prevIndex) => (prevIndex - 1 + images.length) % images.length);
-            setTimeout(() => setIsTransitioning(false), 50);
-        }, 500); // Tempo para fade out
-    };
-
-    // Funções de navegação que também reiniciam o temporizador
-    const handleNextSlide = () => {
-        nextSlide();
-        resetTimer(); // Reinicia o temporizador após navegação manual
-    };
-
-    const handlePrevSlide = () => {
-        prevSlide();
-        resetTimer(); // Reinicia o temporizador após navegação manual
-    };
-
-    // Função para lidar com clique nos indicadores
-    const handleIndicatorClick = (index: number) => {
-        if (isTransitioning) return;
-        
-        setIsTransitioning(true);
-        setTimeout(() => {
-            setCurrentIndex(index);
-            setTimeout(() => setIsTransitioning(false), 50);
-        }, 500);
-        
-        resetTimer(); // Reinicia o temporizador após navegação manual
-    };
-
-    // Inicia o temporizador quando o componente é montado
-    useEffect(() => {
-        resetTimer();
-        
-        // Limpa o temporizador quando o componente é desmontado
-        return () => {
-            if (intervalRef.current) {
-                clearInterval(intervalRef.current);
-            }
-        };
-    }, []);
-
     if (images.length === 0) {
         return <p>Nenhuma imagem encontrada na pasta assets</p>;
     }
+
+    // Responsive configurations for different screen sizes
+    const responsive = {
+        superLargeDesktop: {
+            breakpoint: { max: 4000, min: 1200 },
+            items: 1
+        },
+        desktop: {
+            breakpoint: { max: 1199, min: 768 },
+            items: 1
+        },
+        tablet: {
+            breakpoint: { max: 767, min: 464 },
+            items: 1
+        },
+        mobile: {
+            breakpoint: { max: 463, min: 0 },
+            items: 1
+        }
+    };
+
+    // Detecta se é tela pequena para ajustar propriedades
+    const [isMobile, setIsMobile] = useState(false);
+    useEffect(() => {
+        const handleResize = () => setIsMobile(window.innerWidth <= 480);
+        handleResize();
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
 
     return (
         <div className="app-container">
             <h1>Many moments have passed, and I'm already looking forward to spending the next ones with you.</h1>
 
             <div className="carousel-container">
-                <div className="carousel-navigation">
-                    <button 
-                        className="nav-button prev-button" 
-                        onClick={handlePrevSlide} 
-                        disabled={isTransitioning}
-                    >
-                        &lt; Anterior
-                    </button>
-                    <button 
-                        className="nav-button next-button" 
-                        onClick={handleNextSlide} 
-                        disabled={isTransitioning}
-                    >
-                        Próxima &gt;
-                    </button>
-                </div>
-
-                <div className="carousel">
-                    <div className="carousel-track">
-                        <div className={`carousel-slide ${isTransitioning ? 'fade-out' : 'fade-in'}`}>
+                <Carousel
+                    responsive={responsive}
+                    infinite={true}
+                    autoPlay={true}
+                    autoPlaySpeed={5000}
+                    keyBoardControl={true}
+                    customTransition="transform 1500ms ease-in-out" // Alterado para transição mais suave
+                    transitionDuration={1500} // Alterado para transição mais suave
+                    containerClass="carousel-container"
+                    removeArrowOnDeviceType={["tablet", "mobile"]}
+                    dotListClass="custom-dot-list-style"
+                    itemClass="carousel-item"
+                    showDots={true}
+                    centerMode={!isMobile} // Em telas pequenas, centerMode desabilitado para ocupar 100% da tela
+                    focusOnSelect={true}
+                >
+                    {images.map((image, index) => (
+                        <div key={index} className="carousel-slide">
                             <img
-                                src={images[currentIndex]}
-                                alt={`Slide ${currentIndex}`}
+                                src={image}
+                                alt={`Slide ${index + 1}`}
                                 className="carousel-image"
                             />
                         </div>
-                    </div>
-                </div>
-
-                <div className="carousel-indicators">
-                    {images.map((_, index) => (
-                        <span
-                            key={index}
-                            className={`indicator ${index === currentIndex ? 'active' : ''}`}
-                            onClick={() => handleIndicatorClick(index)}
-                        ></span>
                     ))}
-                </div>
+                </Carousel>
             </div>
+
             <div className="mensagem-especial">
                 <p>
                     A vida tem cores mais vibrantes ao seu lado e tudo acaba sendo mais intenso.<br />
