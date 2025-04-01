@@ -50,6 +50,7 @@ const Carrossel: React.FC = () => {
                     numScroll={1}
                     responsiveOptions={responsiveOptions}
                     itemTemplate={imageTemplate}
+                    autoplayInterval={3000}
                     circular
                 />
             </div>
