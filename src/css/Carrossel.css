@@ -288,7 +288,6 @@ h1 {
 
     .carousel-slide {
         height: 400px;
-        /* aumento da altura no mobile */
         padding: 8px;
         border-radius: 12px;
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
