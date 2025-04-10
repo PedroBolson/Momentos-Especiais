@@ -1,12 +1,16 @@
 .timeline-wrapper {
+    border-radius: 15px;
     position: relative;
     width: 100%;
-    margin: 40px 0;
+    margin: 0;
+    overflow: hidden;
+    /* Impede que conteúdo vaze */
 }
 
 .timeline-outer-container {
     position: relative;
-    padding: 40px 20px;
+    padding: 40px 0 40px 0;
+    /* Remove padding lateral */
     background: #fff0f5;
     overflow-x: scroll;
     overflow-y: hidden;
@@ -31,6 +35,8 @@
     gap: 60px;
     position: relative;
     padding-bottom: 40px;
+    padding-left: 20px;
+    /* Espaço apenas no início para o primeiro item */
     min-width: max-content;
     /* Isso garante que o conteúdo vai além do container */
 }
