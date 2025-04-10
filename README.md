@@ -50,7 +50,7 @@ src/
 1. **Clone the repository**
 
 ```bash
-git clone https://github.com/yourusername/Momentos-Especiais.git
+git clone https://github.com/PedroBolson/Momentos-Especiais.git
 cd Momentos-Especiais
 ```
 
