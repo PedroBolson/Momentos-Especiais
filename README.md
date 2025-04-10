@@ -1,54 +1,111 @@
-# React + TypeScript + Vite
+# Momentos Especiais
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A beautiful interactive web application built to celebrate special moments in a relationship. This project showcases a timeline of significant events, an elegant photo gallery, and heartfelt messages wrapped in a romantic design.
 
-Currently, two official plugins are available:
+## 📝 Description
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+"Momentos Especiais" (Special Moments) is a React-based web application designed as a digital love letter. It provides an interactive and visually appealing way to commemorate relationship milestones and share memories through various engaging components.
 
-## Expanding the ESLint configuration
+## ✨ Features
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **Timeline**: An interactive, draggable timeline showcasing important relationship milestones.
+- **Together Timer**: A counter that precisely calculates and displays the time spent together since the beginning of the relationship.
+- **Photo Carousel**: An elegant carousel displaying special memories with automatic slideshow.
+- **Love Letter**: An interactive envelope that opens to reveal a special message.
+- **Background Effects**: Floating hearts animation that creates a romantic atmosphere.
+- **Music Player**: Background music player with "Heat Waves" by Glass Animals.
+- **Daily Romantic Message**: Unique love messages that change each day.
+- **Responsive Design**: Optimized for both desktop and mobile viewing.
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## 🛠️ Technologies Used
+
+- **React 19**
+- **TypeScript**
+- **Vite** - For fast development and building
+- **Ant Design** - For UI components
+- **CSS** - Custom styling for components
+- **GitHub Actions** - For CI/CD pipeline
+- **GitHub Pages** - For hosting
+
+## 📦 Project Structure
+
+```
+src/
+├── assets/     # Images for the carousel
+├── components/ # React components
+│   ├── Timeline.tsx
+│   ├── TogetherTimer.tsx
+│   ├── Carrossel.tsx
+│   ├── Carta.tsx
+│   ├── HeartBackground.tsx
+│   ├── MusicPlayer.tsx
+│   ├── MensagemRomantica.tsx
+│   └── Footer.tsx
+├── css/        # Component styles
+└── main.tsx    # Application entry point
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 🚀 Installation & Setup
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+1. **Clone the repository**
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+```bash
+git clone https://github.com/yourusername/Momentos-Especiais.git
+cd Momentos-Especiais
 ```
+
+2. **Install dependencies**
+
+```bash
+npm install
+```
+
+3. **Run development server**
+
+```bash
+npm run dev
+```
+
+4. **Build for production**
+
+```bash
+npm run build
+```
+
+## 💻 Development
+
+- The project is configured with ESLint for code quality
+- TypeScript is used for type safety
+- Components are organized by functionality
+
+## 🌐 Deployment
+
+The application is configured to automatically deploy to GitHub Pages using GitHub Actions. When new changes are pushed to the main branch, the workflow:
+
+1. Checks out the code
+2. Sets up Node.js
+3. Installs dependencies
+4. Builds the project
+5. Deploys to the gh-pages branch
+
+## 🎨 Customization
+
+To personalize this project for your own relationship:
+
+1. Edit the timeline events in `src/components/Timeline.tsx`
+2. Replace the photos in the `src/assets/` folder
+3. Adjust the starting date in `src/components/TogetherTimer.tsx`
+4. Modify the love letter content in `src/components/Carta.tsx`
+5. Change the background music in the `public/music/` directory
+
+## 📄 License
+
+This project is licensed under the MIT License.
+
+## 👨‍💻 Author
+
+- Pedro Bolson
+
+---
+
+Made with ❤️ for someone special.
