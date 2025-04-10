@@ -4,6 +4,7 @@ import Footer from './components/Footer'
 import HeartBackground from './components/HeartBackground'
 import MusicPlayer from './components/MusicPlayer'
 import TogetherTimer from './components/TogetherTimer'
+import MensagemRomantica from './components/MensagemRomantica'
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <Carrossel />
       <Carta />
       <MusicPlayer />
+      <MensagemRomantica />
       <Footer />
     </div>
   )
