@@ -143,11 +143,19 @@
     }
 
     .timer-unit {
-        min-width: 45px;
+        flex: 0 0 calc(33.33% - 10px);
+        /* 10px para compensar o gap */
+        text-align: center;
+        /* Remova min-width se estiver atrapalhando */
     }
 
     .timer-separator {
-        height: 30px;
+        display: none;
+    }
+
+    .timer-display {
+        gap: 10px;
+        flex-wrap: wrap;
     }
 
     .timer-message {
