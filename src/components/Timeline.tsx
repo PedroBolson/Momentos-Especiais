@@ -7,8 +7,8 @@ import {
     Home,
     Sparkles,
     Palmtree,
-    Mountain,
-    Shell,
+    Car,
+    TicketsPlane,
     Key
 } from "lucide-react";
 
@@ -26,7 +26,7 @@ const moments = [
         title: "Primeira Viagem",
         description: "Uma jornada mágica para lembrar (Gramado)",
         date: "01/05/2021",
-        icon: Plane,
+        icon: Car,
         iconColor: "text-blue-500",
         bgColor: "bg-blue-50",
         details: "Entre montanhas e cafés especiais, descobrimos que viajar juntos era ainda mais perfeito."
@@ -80,7 +80,7 @@ const moments = [
         title: "Segundo Voo",
         description: "Aventuras incríveis (Rio / Arraial do Cabo)",
         date: "07/11/2023",
-        icon: Mountain,
+        icon: Plane,
         iconColor: "text-orange-500",
         bgColor: "bg-orange-50",
         details: "Entre Cristo Redentor e praias paradisíacas, nosso amor cresceu ainda mais forte."
@@ -89,7 +89,7 @@ const moments = [
         title: "Terceiro Voo",
         description: "Paraíso tropical (Morro de São Paulo)",
         date: "31/10/2024",
-        icon: Shell,
+        icon: TicketsPlane,
         iconColor: "text-teal-500",
         bgColor: "bg-teal-50",
         details: "Descobrindo juntos que cada nova viagem é uma aventura única e especial."
