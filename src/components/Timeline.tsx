@@ -29,7 +29,7 @@ const moments = [
         icon: Car,
         iconColor: "text-blue-500",
         bgColor: "bg-blue-50",
-        details: "Entre montanhas e cafés especiais, descobrimos que viajar juntos era ainda mais perfeito."
+        details: "Entre montanhas e passeios especiais, descobrimos que viajar juntos era ainda mais perfeito."
     },
     {
         title: "Primeira Praia",
@@ -83,7 +83,7 @@ const moments = [
         icon: Plane,
         iconColor: "text-orange-500",
         bgColor: "bg-orange-50",
-        details: "Entre Cristo Redentor e praias paradisíacas, nosso amor cresceu ainda mais forte."
+        details: "Entre Pão de Açúcar e praias paradisíacas, nosso amor cresceu ainda mais forte."
     },
     {
         title: "Terceiro Voo",
