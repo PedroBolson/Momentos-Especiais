@@ -1,6 +1,8 @@
-# Momentos Especiais
+# Momentos Especiais ✨
 
 A beautiful interactive web application built to celebrate special moments in a relationship. This project showcases a timeline of significant events, an elegant photo gallery, and heartfelt messages wrapped in a romantic design.
+
+**🎉 Now fully migrated to TailwindCSS for better maintainability and modern styling!**
 
 ## 📝 Description
 
@@ -22,8 +24,9 @@ A beautiful interactive web application built to celebrate special moments in a 
 - **React 19**
 - **TypeScript**
 - **Vite** - For fast development and building
+- **TailwindCSS** - For modern, utility-first styling
 - **Ant Design** - For UI components
-- **CSS** - Custom styling for components
+- **PostCSS** - For CSS processing
 - **GitHub Actions** - For CI/CD pipeline
 - **GitHub Pages** - For hosting
 

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import '../css/MensagemRomantica.css';
+import { Heart, Sparkles } from 'lucide-react';
 
 // Função para embaralhar um array
 const shuffleArray = (array: string[]): string[] => {
@@ -90,8 +90,32 @@ const MensagemRomantica: React.FC = () => {
     }, []);
 
     return (
-        <div id="mensagem-romantica">
-            {mensagem}
+        <div className="w-full">
+            {/* Header */}
+            <div className="text-center mb-12">
+                <h2 className="font-dancing text-5xl md:text-6xl gradient-text-love mb-4">
+                    Mensagem do Dia
+                </h2>
+                <p className="font-inter text-lg text-gray-600 max-w-2xl mx-auto flex items-center justify-center gap-2">
+                    Uma declaração especial renovada a cada amanhecer
+                    <Sparkles className="w-5 h-5 text-purple-500 animate-pulse" />
+                    <Heart className="w-5 h-5 text-pink-500 animate-pulse" fill="currentColor" />
+                </p>
+            </div>
+
+            {/* Daily Message */}
+            <div className="modern-card max-w-4xl mx-auto text-center">
+                <div className="mb-6 animate-pulse-gentle flex justify-center">
+                </div>
+                <div className="text-xl md:text-3xl font-dancing font-semibold gradient-text-love leading-relaxed mb-8">
+                    {mensagem}
+                </div>
+                <div className="flex justify-center items-center gap-4">
+                    <Heart className="w-5 h-5 text-pink-400 animate-pulse-gentle" fill="currentColor" style={{ animationDelay: '0s' }} />
+                    <Sparkles className="w-5 h-5 text-purple-400 animate-pulse-gentle" style={{ animationDelay: '0.5s' }} />
+                    <Heart className="w-5 h-5 text-rose-400 animate-pulse-gentle" fill="currentColor" style={{ animationDelay: '1s' }} />
+                </div>
+            </div>
         </div>
     );
 };
